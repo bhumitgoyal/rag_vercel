@@ -10,9 +10,11 @@ from langchain.chat_models import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.schema.output_parser import StrOutputParser
-
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
+
 
 class RAGChatbot:
     def __init__(self, data_path=None, df=None, model_name="gpt-3.5-turbo"):
